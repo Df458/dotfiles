@@ -52,6 +52,10 @@ source $ZSH/oh-my-zsh.sh
 source ~/.shellprompt.sh
 source ~/.zsh-personal
 
+# Prevent grep from spewing deprecation warnings everywhere
+unset GREP_OPTIONS
+alias grep='grep --color=auto'
+
 # User configuration
 
 export PATH=$HOME/.bin:/usr/local/bin:$PATH
@@ -80,8 +84,9 @@ export FBFONT=/usr/share/kbd/consolefonts/ter-216n.psf.gz
 # X Window Manager 
 export WM=/usr/bin/dwm
 
-# Default WINE location
+# Default WINE location and architecture
 export WINEPREFIX="/home/df458/.wine"
+export WINEARCH="win32"
 
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,

@@ -4,7 +4,7 @@
 # ~/.xinitrc
 #
 
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources ]]
+exec xrdb ~/.Xresources &
 exec xbindkeys &
 exec setxkbmap -option caps:swapescape &
 exec st -e tmux -2 attach -t main &
