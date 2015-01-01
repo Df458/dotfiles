@@ -20,6 +20,7 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-dispatch'
 Plugin 'Shougo/unite.vim'
+Plugin 'valgrind.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -58,6 +59,7 @@ let g:tmuxline_preset = {
    \'cwin' : '#W',
    \'y'    : '%a %R'}
 let cobol_legacy_code=1
+let g:valgrind_arguments=''
 
 set smartindent
 set incsearch showmatch ignorecase smartcase hlsearch
