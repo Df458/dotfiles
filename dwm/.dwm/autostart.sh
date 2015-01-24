@@ -3,7 +3,7 @@ netdisp=""
 netcount="$(grep 'wlo1' /proc/net/dev | awk 'END {print $2}')"
 netlevel=0
 nettitles=(" b" "kb" "mb" "gb" "tb")
-counter=5
+counter=0
 musicartist=""
 musictitle=""
 musicsymbol=""
@@ -13,34 +13,33 @@ cpudata=""
 netdata=""
 batdata=""
 
-#zsh .bgmagick.sh &
+sunread="0"
+dunread="0"
+
 compton --config ~/.compton.conf -b
 
 while true; do
-	((counter=$counter+1))
-	
 #Battery Section----------------------------------------------------------------
-	if ((counter >= 5)); then
+	if (( $counter % 5 == 0 )); then
 		batperc="$(acpi | cut -d, -f 2)"
-    battime="$(acpi | cut -d, -f 3 | cut -c3-6)"
-    batchg="$(acpi | cut -d, -f 1 | cut -d' ' -f 3)"
-    if [ $batchg = "Discharging" ]; then
-        if [[ "0:15" > $battime ]]; then
-            batdata="<span bgcolor='#FF0000'>  $batperc, $battime</span>"
+        battime="$(acpi | cut -d, -f 3 | cut -c3-6)"
+        batchg="$(acpi | cut -d, -f 1 | cut -d' ' -f 3)"
+        if [ $batchg = "Discharging" ]; then
+            if [[ "0:15" > $battime ]]; then
+                batdata="<span bgcolor='#FF0000'> × $batperc, $battime</span>"
+            else
+                batdata="× $batperc $battime"
+            fi
         else
-			batdata="× $batperc $battime"
+            if [[ ( $batperc = " 100%" ) || ( $battime = "" ) ]]; then
+                batdata=""
+            else
+                batdata="Ö $batperc $battime"
+            fi
         fi
-    else
-      if [[ ( $batperc = " 100%" ) || ( $battime = "" ) ]]; then
-            batdata=""
-      else
-          batdata="Ö $batperc $battime"
-      fi
-    fi
 
 #Date Section-------------------------------------------------------------------
 		time="Õ $(date +'%m/%d %H:%M')"
-		counter=0
 	fi
 	
 #Music Section------------------------------------------------------------------
@@ -101,11 +100,27 @@ while true; do
 	done
 	netdisp="$(printf %03d $netdisp)"
 	netdata="Ð $netdisp$nettitles[$netlevel]"
+
+#News Section-------------------------------------------------------------------
+    #if (( counter % 30 == 0 )); then
+        #sunread="$(sqlite3 ~/.local/share/singularity/feeds.db 'SELECT COUNT(unread) FROM entries WHERE unread=1')"
+        #dunread="$(sqlite3 ~/Documents/.Collections/singularity-dat/data.db 'SELECT COUNT(unread) FROM entries WHERE unread=1')"
+    #fi
+    #if (( counter % 450 == 0 )); then
+        #exec singularity -n &
+        #exec singularity -d ~/Documents/.Collections/singularity-dat/data.db -n &
+    #fi
 	
 #Main Section-------------------------------------------------------------------
-	topdisplay=""
+	topdisplay="Ý "
+    if (( $sunread > 0 )); then
+        topdisplay="$topdisplay<span fgcolor='#ffa77f'>Ø $sunread</span> Ý "
+    fi
+    if (( $dunread > 0 )); then
+        topdisplay="$topdisplay<span fgcolor='#a77fff'>Ø $dunread</span> Ý "
+    fi
 	if [[ ! $musicdata == "" ]]; then
-	  topdisplay="Ý <span fgcolor='#b5d045'>$musicdata</span> Ý "
+	  topdisplay="$topdisplay<span fgcolor='#b5d045'>$musicdata</span> Ý "
 	fi
 	topdisplay="$topdisplay<span fgcolor='#81c0c5'>$netdata</span> Ý "
 	if [[ ! $batdata == "" ]]; then
@@ -114,5 +129,10 @@ while true; do
 	topdisplay="$topdisplay<span fgcolor='#e0c7a8'>$time</span>"
 	title="$(echo $topdisplay | sed 's/&/and/')"
 	xsetroot -name $title
+
+	((counter=$counter+1))
+    if (( $counter > 450 )); then
+        counter=0;
+    fi
 	sleep 2
 done

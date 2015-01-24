@@ -103,10 +103,10 @@ inoremap jj <ESC>
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | Explore | endif
-autocmd BufRead,BufNewFile *.c,*.cpp,*.h :TagbarOpen
+autocmd BufRead,BufNewFile *.c,*.cpp,*.h,*.vala :TagbarOpen
 
 nmap <F4> :AuthorInfoDetect<cr>
-nmap <F5> :w<cr>:silent Make -j4<cr>
+nmap <F5> :wa<cr>:silent Make -j4<cr>
 nmap <F8> :TagbarToggle<CR>
 map <C-n> :Explore<cr>
 nnoremap <leader><space> :noh<cr>
