@@ -5,7 +5,7 @@
 #
 
 exec xrdb ~/.Xresources &
-exec xbindkeys &
+#exec xbindkeys &
 exec setxkbmap -option caps:swapescape &
 exec st -e tmux -2 attach -t main &
 exec xrandr --output VGA1 --auto --above LVDS1 &

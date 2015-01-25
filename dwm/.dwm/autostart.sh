@@ -19,24 +19,24 @@ dunread="0"
 compton --config ~/.compton.conf -b
 
 while true; do
+    if (( $counter % 5 == 0 )); then
 #Battery Section----------------------------------------------------------------
-	if (( $counter % 5 == 0 )); then
-		batperc="$(acpi | cut -d, -f 2)"
-        battime="$(acpi | cut -d, -f 3 | cut -c3-6)"
-        batchg="$(acpi | cut -d, -f 1 | cut -d' ' -f 3)"
-        if [ $batchg = "Discharging" ]; then
-            if [[ "0:15" > $battime ]]; then
-                batdata="<span bgcolor='#FF0000'> × $batperc, $battime</span>"
-            else
-                batdata="× $batperc $battime"
-            fi
-        else
-            if [[ ( $batperc = " 100%" ) || ( $battime = "" ) ]]; then
-                batdata=""
-            else
-                batdata="Ö $batperc $battime"
-            fi
-        fi
+		#batperc="$(acpi | cut -d, -f 2)"
+        #battime="$(acpi | cut -d, -f 3 | cut -c3-6)"
+        #batchg="$(acpi | cut -d, -f 1 | cut -d' ' -f 3)"
+        #if [ $batchg = "Discharging" ]; then
+            #if [[ "0:15" > $battime ]]; then
+                #batdata="<span bgcolor='#FF0000'> × $batperc, $battime</span>"
+            #else
+                #batdata="× $batperc $battime"
+            #fi
+        #else
+            #if [[ ( $batperc = " 100%" ) || ( $battime = "" ) ]]; then
+                #batdata=""
+            #else
+                #batdata="Ö $batperc $battime"
+            #fi
+        #fi
 
 #Date Section-------------------------------------------------------------------
 		time="Õ $(date +'%m/%d %H:%M')"
@@ -123,9 +123,9 @@ while true; do
 	  topdisplay="$topdisplay<span fgcolor='#b5d045'>$musicdata</span> Ý "
 	fi
 	topdisplay="$topdisplay<span fgcolor='#81c0c5'>$netdata</span> Ý "
-	if [[ ! $batdata == "" ]]; then
-	  topdisplay="$topdisplay<span fgcolor='#fff17e'>$batdata</span> Ý "
-	fi
+	#if [[ ! $batdata == "" ]]; then
+	  #topdisplay="$topdisplay<span fgcolor='#fff17e'>$batdata</span> Ý "
+	#fi
 	topdisplay="$topdisplay<span fgcolor='#e0c7a8'>$time</span>"
 	title="$(echo $topdisplay | sed 's/&/and/')"
 	xsetroot -name $title

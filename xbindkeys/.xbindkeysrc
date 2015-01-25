@@ -36,53 +36,48 @@
 
 
 #Play/Pause
-"cmus-remote -u"
-    m:0x0 + c:172
-    XF86AudioPlay 
+#"cmus-remote -u"
+    #m:0x0 + c:172
+    #XF86AudioPlay 
 
 #Back
-"cmus-remote -r"
-    m:0x0 + c:173
-    XF86AudioPrev 
+#"cmus-remote -r"
+    #m:0x0 + c:173
+    #XF86AudioPrev 
 
-#Forward
-"cmus-remote -n"
-    m:0x0 + c:171
-    XF86AudioNext 
+##Forward
+#"cmus-remote -n"
+    #m:0x0 + c:171
+    #XF86AudioNext 
 
-#Stop
-"cmus-remote -s"
-    m:0x0 + c:166
-    XF86AudioStop 
+##Stop
+#"cmus-remote -s"
+    #m:0x0 + c:166
+    #XF86AudioStop 
 
-#Dmenu
-"dmenu_run"
-    m:0x50 + c:40
-    Mod2+Mod4 + d 
+##Audio Up
+#"amixer set Master playback 5%+ unmute"
+    #XF86AudioRaiseVolume
 
-#Audio Up
-"amixer set Master playback 5%+ unmute"
-    XF86AudioRaiseVolume
+##Audio Down
+#"amixer set Master playback 5%-"
+    #XF86AudioLowerVolume
 
-#Audio Down
-"amixer set Master playback 5%-"
-    XF86AudioLowerVolume
+##Audio Mute
+#"amixer set Master playback toggle"
+    #XF86AudioMute
 
-#Audio Mute
-"amixer set Master playback toggle"
-    XF86AudioMute
+##Brightness Up
+#"xbacklight -inc 15 -time 0 -steps 1"
+    #XF86MonBrightnessUp
+##Brightness Down
+#"xbacklight -dec 15 -time 0 -steps 1"
+    #XF86MonBrightnessDown
 
-#Brightness Up
-"xbacklight -inc 15 -time 0 -steps 1"
-    XF86MonBrightnessUp
-#Brightness Down
-"xbacklight -dec 15 -time 0 -steps 1"
-    XF86MonBrightnessDown
+##Screenshot
+#"scrot 'Screenshot-%F-%H:%M:%S.png' -e 'mv $f ~/Pictures'"
+    #m:0x0 + c:218
+    #Print
 
-#Screenshot
-"scrot 'Screenshot-%F-%H:%M:%S.png' -e 'mv $f ~/Pictures'"
-    m:0x0 + c:218
-    Print
-
-#
-# End of xbindkeys configuration
+##
+## End of xbindkeys configuration
