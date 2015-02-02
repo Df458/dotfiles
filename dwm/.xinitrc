@@ -9,5 +9,6 @@ exec xrdb ~/.Xresources &
 exec setxkbmap -option caps:swapescape &
 exec st -e tmux -2 attach -t main &
 exec xrandr --output VGA1 --auto --above LVDS1 &
+exec dunst &
 exec feh --bg-fill ~/Pictures/backgrounds/desktop_background &
 exec $WM

@@ -65,6 +65,9 @@ case "$extension" in
         try lynx   -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
         try elinks -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
         ;; # fall back to highlight/cat if the text browsers fail
+    cbr|cbt|cbz)
+        try comicthumb "$path" "/tmp/thumb.png" && { img2txt --gamma=0.6 --width="$width" "/tmp/thumb.png"; exit 4;}
+        ;;
 esac
 
 case "$mimetype" in
