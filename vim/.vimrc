@@ -21,6 +21,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-dispatch'
 Plugin 'Shougo/unite.vim'
 Plugin 'valgrind.vim'
+Plugin 'bruno-/vim-man'
 
 call vundle#end()
 filetype plugin indent on
@@ -34,7 +35,7 @@ filetype plugin indent on
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
 
-let g:vtoCommDictNew={ 'lua' : '--', 'vala':'//' }
+let g:vtoCommDictNew={ 'lua' : '--', 'vala' : '//', 'tex' : '%' }
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
 let g:syntastic_check_on_open = 1
@@ -95,6 +96,7 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap j gj
 nnoremap k gk
+nmap K <Plug>(Man)
 inoremap <F1> <ESC>
 nnoremap <F1> :w<cr>:!gcc -g -std=c11 -Wall % && ./a.out<cr>
 vnoremap <F1> <ESC>

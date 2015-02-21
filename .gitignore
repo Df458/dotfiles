@@ -1,6 +1,9 @@
 # Ignore vim undo files
 *.un~
 
+# Ignore backup files
+*.bak
+
 # Ignore Vundle managed files
 vim/.vim/bundle
 
