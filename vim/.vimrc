@@ -22,6 +22,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'Shougo/unite.vim'
 Plugin 'valgrind.vim'
 Plugin 'bruno-/vim-man'
+Plugin 'beyondmarc/hlsl.vim'
 
 call vundle#end()
 filetype plugin indent on

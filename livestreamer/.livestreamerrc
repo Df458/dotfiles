@@ -1,0 +1,2 @@
+player=mpv --fs --cache 2048
+player-no-close
