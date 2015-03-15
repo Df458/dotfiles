@@ -1,6 +1,7 @@
 set nocompatible
 filetype off
-call vundle#begin()
+set rtp+=~/.nvim/bundle/Vundle.vim
+call vundle#begin("~/.nvim/bundle")
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
@@ -13,6 +14,7 @@ Plugin 'vim-task-org'
 Plugin 'farseer90718/vim-taskwarrior'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
+"Plugin 'benekastah/neomake'
 Plugin 'majutsushi/tagbar'
 Plugin 'edkolev/promptline.vim'
 Plugin 'edkolev/tmuxline.vim'
@@ -62,7 +64,6 @@ let g:tmuxline_preset = {
    \'y'    : '%a %R'}
 let cobol_legacy_code=1
 let g:valgrind_arguments=''
-let g:netrw_sort_sequence='[\/]$,\<core\%(\.\d\+\)\=,\.[a-np-z]$,\.h$,\.c$,\.cpp$,*,\.o$,\.obj$,\.info$,\.swp$,\.bak$,\~$'
 
 set smartindent
 set incsearch showmatch ignorecase smartcase hlsearch
@@ -92,7 +93,8 @@ set colorcolumn=80
 set t_Co=256
 set breakindent
 set tags=./tags,tags,~/.tags
-set wildignore += .*~
+set backspace=2
+set wildignore=.*~,.*.swp
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap <up> <nop>
@@ -112,6 +114,7 @@ autocmd BufRead,BufNewFile *.c,*.cpp,*.h,*.vala :TagbarOpen
 
 nmap <F4> :AuthorInfoDetect<cr>
 nmap <F5> :wa<cr>:silent Make -j4<cr>
+"nmap <F5> :wa<cr>:Neomake!<cr>
 nmap <F8> :TagbarToggle<CR>
 map <C-n> :Explore<cr>
 nnoremap <leader><space> :noh<cr>

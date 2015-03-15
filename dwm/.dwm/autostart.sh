@@ -16,6 +16,7 @@ batdata=""
 sunread="0"
 dunread="0"
 
+feh --bg-fill ~/Pictures/backgrounds/desktop_background
 compton --config ~/.compton.conf -b
 
 while true; do

@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/df458/Documents/Code/Personal/Singularity'
+let g:netrw_dirhist_2='/home/df458/Documents/Code/Personal/Singularity/src'
+let g:netrw_dirhist_3='/home/df458/Documents/Games/Making/WIP/to-the-west'
+let g:netrw_dirhist_4='/home/df458/Documents/Code/School/work'

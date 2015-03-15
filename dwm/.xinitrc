@@ -13,5 +13,4 @@ exec st -e tmux -2 attach -t main &
 #exec xrandr --output VGA-0 --auto --above LVDS-0
 exec xrandr --output LVDS-0 --mode 1600x900 --output VGA-0 --mode 1920x1080 --left-of LVDS-0 &
 exec dunst &
-exec feh --bg-fill ~/Pictures/backgrounds/desktop_background &
 exec $WM
