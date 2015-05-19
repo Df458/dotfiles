@@ -16,7 +16,7 @@ XTerm*locale:          true
 ! scrollbar style - rxvt (default), plain (most compact), next, or xterm
 ! URxvt.scrollstyle: xterm
 URxvt.scrollBar: false
-URxvt.font: xft:monospace:size=11
+URxvt.font: xft:Terminus:size=9
 
 ! terminal colors ------------------------------------------------------------
 

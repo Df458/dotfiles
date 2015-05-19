@@ -1,4 +1,5 @@
 [user]
 	email = hugues.ross@gmail.com
+	name = Hugues Ross
 [core]
-	editor = vim
+	editor = nvim
