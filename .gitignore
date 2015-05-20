@@ -6,6 +6,7 @@
 
 # Ignore Vundle managed files
 vim/.vim/bundle
+vim/.nvim/bundle
 
 # Ignore files with personal data
 mutt/.mutthome
@@ -15,6 +16,7 @@ zsh/.zsh-personal
 
 # Ignore bookmark and history files
 vim/.vim/.netrwhist
+vim/.nvim/.netrwhist
 ranger/.config/ranger/bookmarks
 ranger/.config/ranger/history
 ranger/.config/ranger/tagged
