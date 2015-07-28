@@ -27,7 +27,7 @@ session = /home/df458/Downloads/.torrents/session
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
-schedule = watch_directory,5,5,load_start=/home/df458/Downloads/*.torrent
+schedule = watch_directory,5,5,load.start=/home/df458/Downloads/*.torrent
 #schedule = untied_directory,5,5,stop_untied=
 
 # Close torrents when diskspace is low.
@@ -81,4 +81,27 @@ dht_port = 6881
 
 # Enable peer exchange (for torrents not marked private)
 #
-peer_exchange = yes
+#peer_exchange = yes
+ui.color.alarm = "bold white on red"
+ui.color.complete = "41"
+ui.color.even = "on 234"
+ui.color.focus = "reverse"
+ui.color.footer = "bright cyan on 20"
+ui.color.incomplete = "yellow"
+ui.color.info = "white"
+ui.color.label = "gray"
+ui.color.leeching = "bold bright yellow"
+ui.color.odd = "on 232"
+ui.color.progress0 = "196"
+ui.color.progress100 = "34"
+ui.color.progress120 = "bold bright 47"
+ui.color.progress20 = "202"
+ui.color.progress40 = "213"
+ui.color.progress60 = "214"
+ui.color.progress80 = "226"
+ui.color.queued = "magenta"
+ui.color.seeding = "bold bright 46"
+ui.color.stopped = "33"
+ui.color.title = "bold bright white on blue"
+schedule = bind_collapse,0,0,"ui.bind_key=download_list,*,view.collapsed.toggle="
+#system.method.insert = pyro.extended, value|const, 1

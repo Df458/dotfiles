@@ -1,7 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/df458/Documents/Games/Making/WIP/AH/data'
-let g:netrw_dirhist_2='/home/df458/Documents/Games/Making/WIP/AH'
-let g:netrw_dirhist_3='/home/df458/Documents/Games/Making/WIP/AH/src'
-let g:netrw_dirhist_4='/home/df458/Documents/Code/Work/django_test/testsite'
-let g:netrw_dirhist_5='/home/df458/Documents/Code/Work/django_test/testsite/testsite'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/df458/.dotfiles/jumanji/.config'
+let g:netrw_dirhist_2='/home/df458/.dotfiles/jumanji/.config/jumanji'
+let g:netrw_dirhist_3='/home/df458/.dotfiles/jumanji/.config/jumanji/scripts'

@@ -1242,3 +1242,8 @@ class log(Command):
 
         pager = os.environ.get('PAGER', ranger.DEFAULT_PAGER)
         self.fm.run([pager, tmp.name])
+
+class rename_all(Command):
+    def execute(self):
+        self.fm.execute_command(["zsh", "/home/df458/.bin/rename-all", self.arg(1), self.arg(2)])
+        self.fm.notify("renamed all " + self.arg(1) + " files to " + self.arg(2) + " files")

@@ -1,0 +1,17 @@
+set homepage file:///home/df458/Documents/Code/Personal/newtab/new-tab.html
+set font "Terminus 8"
+set download-dir ~/Downloads/
+set download-command "st -e sh -c \"wget --load-cookies ~/.local/share/jumanji/cookies '%s' -O '%s'\"";
+set default-fg "#DDDDDD"
+set default-bg "#222222"
+set tabbar-fg "#DDDDDD"
+set tabbar-bg "#222222"
+set tabbar-focus-fg "#CCCCCC"
+set tabbar-focus-bg "#333333"
+set statusbar-fg "#DDDDDD"
+set statusbar-bg "#222222"
+set focus-new-tabs false
+set save-session-at-exit true
+set load-session-at-startup true
+searchengine ggl http://www.google.com/search?q=%s
+searchengine arch https://wiki.archlinux.org/index.php?search=%s

@@ -25,8 +25,15 @@ Plugin 'Shougo/unite.vim'
 Plugin 'valgrind.vim'
 Plugin 'bruno-/vim-man'
 Plugin 'beyondmarc/hlsl.vim'
+Plugin 'tikhomirov/vim-glsl'
+Plugin 'sjl/gundo.vim'
+Plugin 'a.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
+set nocp
 filetype plugin indent on
 "
 " Brief help
@@ -64,6 +71,8 @@ let g:tmuxline_preset = {
    \'y'    : '%a %R'}
 let cobol_legacy_code=1
 let g:valgrind_arguments=''
+let g:task_rc_override = 'rc.defaultwidth=0'
+let g:task_rc_override = 'rc.defaultheight=0'
 
 set smartindent
 set incsearch showmatch ignorecase smartcase hlsearch
@@ -92,7 +101,6 @@ set formatoptions=qrn1
 set colorcolumn=80
 set t_Co=256
 set breakindent
-set tags=./tags,tags,~/.tags
 set backspace=2
 set wildignore=.*~,.*.swp
 nnoremap <left> <nop>
@@ -103,17 +111,20 @@ nnoremap j gj
 nnoremap k gk
 nmap K <Plug>(Man)
 inoremap <F1> <ESC>
-nnoremap <F1> :w<cr>:!gcc -g -std=c11 -Wall % && ./a.out<cr>
 vnoremap <F1> <ESC>
 nnoremap ; :
-inoremap jj <ESC>
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | Explore | endif
-autocmd BufRead,BufNewFile *.c,*.cpp,*.h,*.vala :TagbarOpen
+autocmd BufRead,BufNewFile *.c,*.cpp,*.h :TagbarOpen
+au BufRead,BufNewFile *.actr,*.lev,*.pmt setfiletype xml
 
 nmap <F4> :AuthorInfoDetect<cr>
-nmap <F5> :wa<cr>:silent Make -j4<cr>
+if findfile("makefile", getcwd()) == "makefile"
+    nmap <F5> :wa<cr>:silent Make -j8<cr>
+elseif &ft == "cpp" || &ft == "c"
+    nnoremap <F5> :w<cr>:!gcc -g -std=c11 -Wall % && ./a.out<cr>
+endif
 "nmap <F5> :wa<cr>:Neomake!<cr>
 nmap <F8> :TagbarToggle<CR>
 map <C-n> :Explore<cr>
