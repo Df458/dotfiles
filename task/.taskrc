@@ -25,3 +25,6 @@ data.location=~/.task
 #include /usr/share/doc/task/rc/dark-yellow-green.theme
 #include /usr/share/doc/task/rc/dark-gray-256.theme
 
+urgency.user.tag.wishlist.coefficient=-6.0
+urgency.user.tag.bug.coefficient=2.25
+urgency.user.tag.chore.coefficient=4
