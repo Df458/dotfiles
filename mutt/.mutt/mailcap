@@ -1,4 +1,8 @@
 text/html; elinks -dump ; copiousoutput;
 
-application/pdf; evince %s
+application/pdf; mupdf %s
 application/msword; libreoffice --view %s
+
+image/*; sxiv %s
+video/*; mpv -fs %s
+audio/*; mpv %s

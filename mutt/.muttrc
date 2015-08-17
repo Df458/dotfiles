@@ -15,6 +15,7 @@ set pager_context = 3
 set pager_stop 
 set tilde
 unset markers
+auto_view text/html
 
 # GPG stuff
 source ~/.gpg.rc

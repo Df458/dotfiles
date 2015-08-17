@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/df458/.dotfiles/jumanji/.config'
-let g:netrw_dirhist_2='/home/df458/.dotfiles/jumanji/.config/jumanji'
-let g:netrw_dirhist_3='/home/df458/.dotfiles/jumanji/.config/jumanji/scripts'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/df458/Documents/Games/Making/WIP/Akradion/data'
+let g:netrw_dirhist_2='/home/df458/Documents/Games/Making/WIP/Akradion/data/levels'
+let g:netrw_dirhist_3='/home/df458/Documents/Games/Making/WIP/Akradion/data'
+let g:netrw_dirhist_4='/home/df458/Documents/Games/Making/WIP/Akradion/data/scripts'
+let g:netrw_dirhist_5='/home/df458/.dotfiles/mutt/.mutt'
+let g:netrw_dirhist_6='/home/df458/.dotfiles/mutt'
