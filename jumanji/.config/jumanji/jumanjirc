@@ -13,5 +13,6 @@ set statusbar-bg "#222222"
 set focus-new-tabs false
 set save-session-at-exit true
 set load-session-at-startup true
+set enable-developer-extras true
 searchengine ggl http://www.google.com/search?q=%s
 searchengine arch https://wiki.archlinux.org/index.php?search=%s
