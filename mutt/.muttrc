@@ -50,14 +50,9 @@ set pgp_strict_enc
 
 alternative_order text/plain text/enriched text/html
 
-#source "~/.muttschool"
-#folder-hook hugues.ross@mymail.champlain.edu 'source ~/.muttschool'
 folder-hook ~/\.mail/personal 'set sendmail = "/usr/bin/msmtp -a gmail_personal"'
 folder-hook ~/\.mail/college  'set sendmail = "/usr/bin/msmtp -a gmail_school"'
 folder-hook ~/\.mail/extra    'unset sendmail'
-
-#source "~/.mutthome"
-#folder-hook hugues.ross@gmail.com 'source ~/.mutthome'
 
 ## Theme kindly inspired from
 ## http://nongeekshandbook.blogspot.ie/2009/03/mutt-color-configuration.html
