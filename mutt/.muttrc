@@ -1,21 +1,44 @@
 set editor="nvim -c 'set spell spelllang=en'"
 set header_cache = "~/.cache/mutt"
 set message_cachedir = "~/.cache/mutt"
-set imap_check_subscribed
-unset imap_passive
-set imap_keepalive = 300
-set mail_check = 900
+set alias_file = "~/.mutt/aliases"
+set sort_alias = alias
+set reverse_alias = yes
+set sendmail = "/usr/bin/msmtp"
+source $alias_file
+set sidebar_visible = yes
+set sidebar_width = 24
+set sidebar_delim = '│'
+mailboxes ~/.mail/personal ~/.mail/college ~/.mail/extra
+#set sidebar_format = "%N - %B"
+#set sidebar_shortpath = yes
+bind index \cp sidebar-prev
+bind index \cn sidebar-next
+bind index \co sidebar-open
+bind pager \cp sidebar-prev
+bind pager \cn sidebar-next
+bind pager \co sidebar-open
+#set imap_check_subscribed
+#unset imap_passive
+#set imap_keepalive = 300
+#set mail_check = 900
+set mbox_type=Maildir
+set folder=$HOME/.mail/personal
+set spoolfile=+/
+set header_cache=~/.cache/mutt
 set sort = "reverse-threads"
 set sleep_time = 0
 set mailcap_path = "~/.mutt/mailcap"
-macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.mutthome<enter><change-folder>!<enter>'
-macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.muttschool<enter><change-folder>!<enter>'
+#macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.mutthome<enter><change-folder>!<enter>'
+#macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.muttschool<enter><change-folder>!<enter>'
 set pager_index_lines = 10
 set pager_context = 3
 set pager_stop 
 set tilde
 unset markers
 auto_view text/html
+macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+set wait_key = no
 
 # GPG stuff
 source ~/.gpg.rc
@@ -27,21 +50,24 @@ set pgp_strict_enc
 
 alternative_order text/plain text/enriched text/html
 
-source "~/.muttschool"
-folder-hook hugues.ross@mymail.champlain.edu 'source ~/.muttschool'
+#source "~/.muttschool"
+#folder-hook hugues.ross@mymail.champlain.edu 'source ~/.muttschool'
+folder-hook ~/\.mail/personal 'set sendmail = "/usr/bin/msmtp -a gmail_personal"'
+folder-hook ~/\.mail/college  'set sendmail = "/usr/bin/msmtp -a gmail_school"'
+folder-hook ~/\.mail/extra    'unset sendmail'
 
-source "~/.mutthome"
-folder-hook hugues.ross@gmail.com 'source ~/.mutthome'
+#source "~/.mutthome"
+#folder-hook hugues.ross@gmail.com 'source ~/.mutthome'
 
 ## Theme kindly inspired from
 ## http://nongeekshandbook.blogspot.ie/2009/03/mutt-color-configuration.html
 
 ## Colours for items in the index
-color index brightcyan black ~N
-color index brightred black ~O
-color index brightyellow black ~F
-color index black green ~T
-color index brightred black ~D
+color index brightcyan default ~N
+color index brightred default ~O
+color index brightyellow default ~F
+color index default green ~T
+color index brightred default ~D
 mono index bold ~N
 mono index bold ~F
 mono index bold ~T
@@ -50,73 +76,76 @@ mono index bold ~D
 ## Highlights inside the body of a message.
 
 ## URLs
-color body brightgreen black "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
-color body brightgreen black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+color body brightgreen default "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+color body brightgreen default "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
 mono body bold "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
 mono body bold "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
 
 ## Email addresses.
-color body brightgreen black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color body brightgreen default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
 
 ## Header
-color header green black "^from:"
-color header green black "^to:"
-color header green black "^cc:"
-color header green black "^date:"
-color header yellow black "^newsgroups:"
-color header yellow black "^reply-to:"
-color header brightcyan black "^subject:"
-color header red black "^x-spam-rule:"
-color header green black "^x-mailer:"
-color header yellow black "^message-id:"
-color header yellow black "^Organization:"
-color header yellow black "^Organisation:"
-color header yellow black "^User-Agent:"
-color header yellow black "^message-id: .*pine"
-color header yellow black "^X-Fnord:"
-color header yellow black "^X-WebTV-Stationery:"
+color header green default "^from:"
+color header green default "^to:"
+color header green default "^cc:"
+color header green default "^date:"
+color header yellow default "^newsgroups:"
+color header yellow default "^reply-to:"
+color header brightcyan default "^subject:"
+color header red default "^x-spam-rule:"
+color header green default "^x-mailer:"
+color header yellow default "^message-id:"
+color header yellow default "^Organization:"
+color header yellow default "^Organisation:"
+color header yellow default "^User-Agent:"
+color header yellow default "^message-id: .*pine"
+color header yellow default "^X-Fnord:"
+color header yellow default "^X-WebTV-Stationery:"
 
-color header red black "^x-spam-rule:"
-color header green black "^x-mailer:"
-color header yellow black "^message-id:"
-color header yellow black "^Organization:"
-color header yellow black "^Organisation:"
-color header yellow black "^User-Agent:"
-color header yellow black "^message-id: .*pine"
-color header yellow black "^X-Fnord:"
-color header yellow black "^X-WebTV-Stationery:"
-color header yellow black "^X-Message-Flag:"
-color header yellow black "^X-Spam-Status:"
-color header yellow black "^X-SpamProbe:"
-color header red black "^X-SpamProbe: SPAM"
+color header red default "^x-spam-rule:"
+color header green default "^x-mailer:"
+color header yellow default "^message-id:"
+color header yellow default "^Organization:"
+color header yellow default "^Organisation:"
+color header yellow default "^User-Agent:"
+color header yellow default "^message-id: .*pine"
+color header yellow default "^X-Fnord:"
+color header yellow default "^X-WebTV-Stationery:"
+color header yellow default "^X-Message-Flag:"
+color header yellow default "^X-Spam-Status:"
+color header yellow default "^X-SpamProbe:"
+color header red default "^X-SpamProbe: SPAM"
 
 ## Coloring quoted text - coloring the first 7 levels:
-color quoted cyan black
-color quoted1 yellow black
-color quoted2 red black
-color quoted3 green black
-color quoted4 cyan black
-color quoted5 yellow black
-color quoted6 red black
-color quoted7 green black
+color quoted cyan default
+color quoted1 yellow default
+color quoted2 red default
+color quoted3 green default
+color quoted4 cyan default
+color quoted5 yellow default
+color quoted6 red default
+color quoted7 green default
 
 ## Default color definitions   
 #color hdrdefault white green                                                                                                                                             
-color signature brightmagenta black
-color indicator black cyan
-color attachment black green
-color error red black
-color message white black
+color signature brightmagenta default
+color indicator default cyan
+color attachment default green
+color error red default
+color message white default
 color search brightwhite magenta
 color status brightyellow blue
-color tree brightblue black
-color normal white black
-color tilde green black
-color bold brightyellow black
-#color underline magenta black                                                                                                                                            
-color markers brightcyan black
+color tree brightblue default
+color normal white default
+color tilde green default
+color bold brightyellow default
+#color underline magenta default                                                                                                                                            
+color markers brightcyan default
 
 ## Colour definitions when on a mono screen
 mono bold bold
 mono underline underline
 mono indicator reverse
+
+##
+color sidebar_new yellow default
