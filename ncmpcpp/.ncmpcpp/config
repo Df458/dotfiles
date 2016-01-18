@@ -1,0 +1,38 @@
+##
+## Appearance
+##
+
+## Interface'n'Columns ##
+user_interface = "alternative"
+#song_list_format = "{$7%n$9} {$8%a - %t$9}$R{$7%b$9}"
+default_place_to_search_in = "database"
+
+## Colots of another elements ##
+header_window_color = "white"
+volume_color = "white"
+state_line_color = "white"
+state_flags_color = "white"
+progressbar_elapsed_color = "cyan"
+statusbar_color = "white"
+active_column_color = "yellow"
+
+## Selected tracks ##
+selected_item_prefix = "* "
+discard_colors_if_item_is_selected = "no"
+
+## Seeking ##
+incremental_seeking = "yes"
+seek_time = "1"
+
+## Visivility ##
+header_visibility = "yes"
+statusbar_visibility = "yes"
+titles_visibility = "yes"
+
+## Other ##
+now_playing_prefix = "> "
+progressbar_look = "━━━"
+colors_enabled = "yes"
+autocenter_mode = "yes"
+centered_cursor = "yes"
+mpd_music_dir = "/home/df458/Music"
