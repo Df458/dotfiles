@@ -115,4 +115,20 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+function dc() {
+    if [ $# -eq 1 ]; then
+        next=0
+        for i (`cat /home/df458/.dc-locations`); do
+            if [ $next -eq 1 ]; then
+                cd "$i"
+                return
+            fi
+            if [ "$i" = "$1" ]; then
+                next=1
+            fi
+        done
+    fi
+    cd "$@"
+}
+
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
