@@ -31,3 +31,4 @@ zsh/.shellprompt.sh
 # Ignore other
 dwm/.dwm/999
 __pycache__/
+*.log
