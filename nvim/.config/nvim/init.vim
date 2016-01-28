@@ -10,7 +10,7 @@ Plugin 'tpope/vim-fugitive'       "Git integration
 Plugin 'scrooloose/nerdcommenter' "Easy commenting
 "Plugin 'nanotech/jellybeans.vim' "Jellybeans colorscheme
 Plugin 'tomasr/molokai'           "Molokai colorscheme
-Plugin 'Townk/vim-autoclose'      "Automatically closes braces, parens, quotes, etc.
+Plugin 'Raimondi/delimitMate'     "Automatically closes braces, parens, quotes, etc.
 Plugin 'cbracken/vala.vim'        "Vala syntax highlighting
 Plugin 'bling/vim-airline'        "Pretty and functional statusline
 Plugin 'scrooloose/syntastic'     "Automatic syntax checker
