@@ -131,7 +131,7 @@ function! UnmapInsertLeader()
     iunmap <Leader>ihn
 endfunction
 au VimEnter * :call UnmapInsertLeader()
-inoremap <expr><tab> pumvisible() ? '<C-n>' : '<tab>'
+inoremap <expr><tab> pumvisible() ? '<down>' : '<tab>'
 
 "K on a word tries to open a manpage for it
 nmap K <Plug>(Man)
