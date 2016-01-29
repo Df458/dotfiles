@@ -122,6 +122,17 @@ nnoremap <right> <nop>
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 
+"Remove the a.vim insert mode leader combos
+"This allows us to map leader (tab, in my case) to scroll through completions
+"without lag.
+function! UnmapInsertLeader()
+    iunmap <Leader>ih
+    iunmap <Leader>is
+    iunmap <Leader>ihn
+endfunction
+au VimEnter * :call UnmapInsertLeader()
+inoremap <expr><tab> pumvisible() ? '<C-n>' : '<tab>'
+
 "K on a word tries to open a manpage for it
 nmap K <Plug>(Man)
 "Allows ; instead of : for commands
