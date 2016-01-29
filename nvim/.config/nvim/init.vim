@@ -25,6 +25,7 @@ Plugin 'a.vim'                    "Adds :A* commands, for opening header/source 
 Plugin 'matze/vim-tex-fold'       "Latex folding
 Plugin 'haya14busa/incsearch.vim' "Improved incremental search
 Plugin 'AutoComplPop'             "Automatically makes the Omnicompletion popup appear as you type
+Plugin 'godlygeek/tabular'        "Easy text alignment
 
 "Required vundle finishing stuff
 call vundle#end()
@@ -141,6 +142,15 @@ nnoremap ; :
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+"Automatically align code with 3 keypresses
+"Left-align by = signs
+nmap<leader>a= :Tabularize /=<cr>
+vmap<leader>a= :Tabularize /=<cr>
+
+"Left-align the last word of each line
+nmap<leader>a. :Tabularize /.* \+/<cr>
+vmap<leader>a. :Tabularize /.* \+/<cr>
 
 "When not opening a file, show NetRW for your current directory
 au StdinReadPre * let s:std_in=1
