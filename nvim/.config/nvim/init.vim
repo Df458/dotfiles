@@ -18,7 +18,7 @@ Plugin 'edkolev/promptline.vim'   "Lets you generate a shell prompt based on you
 Plugin 'edkolev/tmuxline.vim'     "Lets you generate a tmux line based on your vim setup
 Plugin 'tpope/vim-vinegar'        "Greatly improves NetRW and makes it useful as a general-purpose file browser/manager
 Plugin 'tpope/vim-dispatch'       "Asynchronous builds and tests, courtesy of tmux
-"Plugin 'Shougo/unite.vim'         "A very opowerful and scary plaugn. Someday, I'll learn it...
+"Plugin 'Shougo/unite.vim'        "A very powerful and scary plugin. Someday, I'll learn it...
 Plugin 'bruno-/vim-man'           "Adds :Man command, for reading man pages in vim
 Plugin 'tikhomirov/vim-glsl'      "Adds GLSL syntax highlighting
 Plugin 'a.vim'                    "Adds :A* commands, for opening header/source files
