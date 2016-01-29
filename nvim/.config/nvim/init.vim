@@ -18,7 +18,7 @@ Plugin 'edkolev/promptline.vim'   "Lets you generate a shell prompt based on you
 Plugin 'edkolev/tmuxline.vim'     "Lets you generate a tmux line based on your vim setup
 Plugin 'tpope/vim-vinegar'        "Greatly improves NetRW and makes it useful as a general-purpose file browser/manager
 Plugin 'tpope/vim-dispatch'       "Asynchronous builds and tests, courtesy of tmux
-"Plugin 'Shougo/unite.vim'         "A very opowerful and scary plaugn. Someday, I'll learn it...
+"Plugin 'Shougo/unite.vim'        "A very powerful and scary plugin. Someday, I'll learn it...
 Plugin 'bruno-/vim-man'           "Adds :Man command, for reading man pages in vim
 Plugin 'tikhomirov/vim-glsl'      "Adds GLSL syntax highlighting
 Plugin 'a.vim'                    "Adds :A* commands, for opening header/source files
@@ -32,19 +32,19 @@ call vundle#end()
 set nocp
 filetype plugin indent on
 
-let g:vtoCommDictNew={ 'lua' : '--', 'vala' : '//', 'tex' : '%' }
-let g:airline#extensions#tabline#enabled=1
-let g:airline_powerline_fonts=1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_no_include_search = 1
-let g:syntastic_cpp_no_default_include_dirs = 1
-let g:syntastic_cpp_auto_refresh_includes = 1
-let g:syntastic_cpp_compiler_options = '-std=c++0x'
+let g:vtoCommDictNew={ 'lua' : '--', 'vala' : '//', 'tex' : '%' } "Add additional comment strings
+let g:airline#extensions#tabline#enabled=1                        "Enable the airline tabline
+let g:airline_powerline_fonts=1                                   "Enable powerline fonts in airline
+let g:syntastic_check_on_open = 1                                 "Check for syntax errors on open
+let g:syntastic_check_on_wq = 0                                   "Don't bother checking syntax when exiting
+let g:syntastic_cpp_check_header = 1                              "Check header files
+let g:syntastic_cpp_no_include_search = 1                         "Don't search includes
+let g:syntastic_cpp_no_default_include_dirs = 1                   "Don't check default include dirs
+let g:syntastic_cpp_auto_refresh_includes = 1                     "Update includes on write
+let g:syntastic_cpp_compiler_options = '-std=c++0x'               "Assume c++0x (c++11) code
 let g:syntastic_mode_map = { "mode": "active",
-                           \ "passive_filetypes": ["vala"] }
-let vala_comment_strings = 1
+                           \ "passive_filetypes": ["vala"] }      "Disable vala syntax checking, because it's pretty awful
+let vala_comment_strings = 1                                      "highlight strings in vala comments
 let g:promptline_preset = {
    \'a' : ['%n'],
    \'b' : [promptline#slices#cwd()],
@@ -57,11 +57,12 @@ let g:tmuxline_preset = {
    \'cwin' : '#W',
    \'y'    : '%a %R'}
 
-let g:tex_fold_enabled=1
-let g:tex_fold_sec_char='+'
-let g:tex_fold_env_char='*'
-let g:tex_conceal='abdmgs'
-let g:tex_fold_additional_envs=['document', 'enumerate', 'itemize']
+let g:tex_fold_enabled=1                                            "Fold TeX/LaTeX code
+let g:tex_fold_sec_char='+'                                         "Prepend the section foldtext with a +
+let g:tex_fold_env_char='*'                                         "Prepend the environment foldtext with a *
+let g:tex_conceal='abdmgs'                                          "Trasform many common symbols into their unicode
+                                                                    "variants when the cursor is on a different line.
+let g:tex_fold_additional_envs=['document', 'enumerate', 'itemize'] "Fold document, enumerate, and itemize LaTeX blocks
 
 syntax enable
 colorscheme molokai
@@ -72,13 +73,14 @@ set backspace=2                     "Backspace works over autoindents, line endi
 set bri                             "Wrapped lines are indented up to the previous line
 set cin                             "Automatic indenting in C files
 set cino=s,e0,n0,f0,{0,}0,^0,L-1,:s,=s,l0,b1,g0,hs,ps,ts,is,+s,c3,C0,/0,(2s,us,U0,w0,W0,m0,j0,J0,)20,*70,#0
+                                    "In addition to the vim defaults:
                                     "Place break statements at the same indentation as their respective case
                                     "Don't indent C++ public/private labels
                                     "Add 2 spaces to denote continued lines
 set cf                              "Ask to save when performing certain actions
 set cc=80                           "Highlight the wrap point on lines
 set cot=menu                        "Display a menu with completions
-set cole=2                          "Completely hide concealed text
+set cole=2                          "Completely hide concealed text, unless a replacement is specified
 set cuc                             "Highlight the cursor's column
 set cul                             "Highlight the cursor's row
 set dy=uhex                         "Display hex characters by their code, when they have no associated character
@@ -89,7 +91,7 @@ set fcl=all                         "Close folds when you aren't in them
 set fdc=3                           "Add a 3-wide column with fold information
 set fdm=syntax                      "By default, fold based on syntax
 set fo=qrn1                         "Enable 'gq' to format comments, automatically add *s to multiline comments
-set gd                              "By default, set the g substitute flag. This subs all matches per line, no just the first
+set gd                              "By default, set the g substitute flag. This subs all matches per line, not just the first
 set ic                              "Disable case-sensitive searching
 set is                              "Enable incremental searching
 set hls                             "Highlight all search matches
@@ -107,7 +109,7 @@ set ts=4                            "Tab is 4 spaces
 set title                           "Change the window title of the terminal to be more descriptive
 set titleold=st                     "Sets the window title to my most-used terminal if nvim couldn't preserve it
 set tw=79                           "Sets the width to 79 characters
-set tf                              "Indicates that the temrinal connection is fast, so more characters should be changed
+set tf                              "Indicates that the terminal connection is fast, so more characters should be changed
 set udf                             "Save undo history across sessions
 set ve=block                        "Allow editing things that don't exist in VISUAL BLOCK mode
 set wig=*.o,*.depend,*.un~,*.swp    "Ignore these files, and don't display them in NetRW
@@ -134,10 +136,11 @@ endfunction
 au VimEnter * :call UnmapInsertLeader()
 inoremap <expr><tab> pumvisible() ? '<down>' : '<tab>'
 
-"K on a word tries to open a manpage for it
+"Pressing K on a word opens the respective manpage for it
 nmap K <Plug>(Man)
 "Allows ; instead of : for commands
 nnoremap ; :
+
 "Incsearch remaps
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -155,19 +158,23 @@ vmap<leader>a. :Tabularize /.* \+/<cr>
 "When not opening a file, show NetRW for your current directory
 au StdinReadPre * let s:std_in=1
 au VimEnter * if argc() == 0 && !exists("s:std_in") | Explore | endif
-au BufNewFile,BufReadPost *.md set filetype=markdown                       "When opening .md files, set the filetype to markdown
-" Don't screw up folds when inserting text that might affect them, until
-" leaving insert mode. Foldmethod is local to the window. Protect against
-" screwing up folding when switching between windows.
+
+"When opening .md files, set the filetype to markdown
+au BufNewFile,BufReadPost *.md set filetype=markdown
+
+"Don't screw up folds when inserting text that might affect them, until
+"leaving insert mode. Foldmethod is local to the window. Protect against
+"screwing up folding when switching between windows.
 au InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
 au InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
-"Press F5 to compile
+"Press F5 to perform a non-blocking compile
 nmap <F5> :wa<cr> :Make -j8<cr>
-"Press Tab followed by space to remove all search highlights
+
+"Press tab followed by space to hide all search highlights
 nnoremap <leader><space> :noh<cr>
 
-"Function to convert Shift-JIS files to UTF-8
+"Utility function to convert a Shift-JIS encoded file to UTF-8 and save it
 function! SJIS2UTF()
     :e! ++enc=sjis
     :w! ++enc=utf-8
