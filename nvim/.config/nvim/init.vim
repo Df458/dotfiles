@@ -36,6 +36,7 @@ Plugin 'honza/vim-snippets'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'matze/vim-tex-fold'
 Plugin 'haya14busa/incsearch.vim'
+Plugin 'phleet/vim-mercenary'
 
 " Setup over
 call vundle#end()
