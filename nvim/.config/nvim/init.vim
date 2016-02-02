@@ -26,6 +26,7 @@ Plugin 'matze/vim-tex-fold'       "Latex folding
 Plugin 'haya14busa/incsearch.vim' "Improved incremental search
 Plugin 'AutoComplPop'             "Automatically makes the Omnicompletion popup appear as you type
 Plugin 'godlygeek/tabular'        "Easy text alignment
+Plugin 'phleet/vim-mercenary'     "Mercurial integration
 
 "Required vundle finishing stuff
 call vundle#end()
