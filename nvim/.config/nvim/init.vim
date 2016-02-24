@@ -152,6 +152,10 @@ map g/ <Plug>(incsearch-stay)
 nmap<leader>a= :Tabularize /=<cr>
 vmap<leader>a= :Tabularize /=<cr>
 
+"Left-align by commas
+nmap<leader>a, :Tabularize /,\zs<cr>
+vmap<leader>a, :Tabularize /,\zs<cr>
+
 "Left-align the last word of each line
 nmap<leader>a. :Tabularize /.* \+/<cr>
 vmap<leader>a. :Tabularize /.* \+/<cr>
