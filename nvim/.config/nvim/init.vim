@@ -7,7 +7,6 @@ call vundle#begin("~/.config/nvim/.nvim/bundle")
 "Plugin List
 Plugin 'gmarik/Vundle.vim'        "Package management for plugins
 Plugin 'tpope/vim-fugitive'       "Git integration
-Plugin 'scrooloose/nerdcommenter' "Easy commenting
 "Plugin 'nanotech/jellybeans.vim' "Jellybeans colorscheme
 Plugin 'tomasr/molokai'           "Molokai colorscheme
 Plugin 'Raimondi/delimitMate'     "Automatically closes braces, parens, quotes, etc.
@@ -27,6 +26,11 @@ Plugin 'haya14busa/incsearch.vim' "Improved incremental search
 Plugin 'AutoComplPop'             "Automatically makes the Omnicompletion popup appear as you type
 Plugin 'godlygeek/tabular'        "Easy text alignment
 Plugin 'phleet/vim-mercenary'     "Mercurial integration
+Plugin 'Yggdroot/indentLine'      "Displays indent levels
+Plugin 'tpope/vim-eunuch'         "Adds basic Unix commands to vim
+Plugin 'wellle/targets.vim'       "Extends vim's text objects to allow for some speedy cursor warping
+Plugin 'tomtom/tcomment_vim'      "A wonderful plugin for commenting stuff out
+Plugin 'embear/vim-localvimrc'    "Allows for project-local vim configuration
 
 "Required vundle finishing stuff
 call vundle#end()
@@ -38,6 +42,7 @@ let g:airline#extensions#tabline#enabled=1                        "Enable the ai
 let g:airline_powerline_fonts=1                                   "Enable powerline fonts in airline
 let g:syntastic_check_on_open = 1                                 "Check for syntax errors on open
 let g:syntastic_check_on_wq = 0                                   "Don't bother checking syntax when exiting
+let g:syntastic_c_checkers = ['make']                             "Check syntax using make
 let g:syntastic_cpp_check_header = 1                              "Check header files
 let g:syntastic_cpp_no_include_search = 1                         "Don't search includes
 let g:syntastic_cpp_no_default_include_dirs = 1                   "Don't check default include dirs
@@ -117,7 +122,7 @@ set wig=*.o,*.depend,*.un~,*.swp    "Ignore these files, and don't display them 
 set wmnu                            "Enable Wildmenu, giving enhanced tab-completion of commands
 set wim=list:longest                "When completing commands, list all matches and complete as much common text as possible
 set wrap                            "Wrap text
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1   "Enable true color display
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1   "Enable true color display
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 "Changes the cursor shape in insert mode
 
 "Prevent arrow key use in normal mode
@@ -166,6 +171,7 @@ au VimEnter * if argc() == 0 && !exists("s:std_in") | Explore | endif
 
 "When opening .md files, set the filetype to markdown
 au BufNewFile,BufReadPost *.md set filetype=markdown
+au BufNewFile,BufReadPost *.c syn match niceArrow '->' conceal cchar=→
 
 "Don't screw up folds when inserting text that might affect them, until
 "leaving insert mode. Foldmethod is local to the window. Protect against
