@@ -11,7 +11,7 @@ Plugin 'tpope/vim-fugitive'       "Git integration
 Plugin 'tomasr/molokai'           "Molokai colorscheme
 Plugin 'Raimondi/delimitMate'     "Automatically closes braces, parens, quotes, etc.
 Plugin 'cbracken/vala.vim'        "Vala syntax highlighting
-Plugin 'bling/vim-airline'        "Pretty and functional statusline
+Plugin 'itchyny/lightline.vim'    "Pretty and functional statusline
 Plugin 'scrooloose/syntastic'     "Automatic syntax checker
 Plugin 'edkolev/promptline.vim'   "Lets you generate a shell prompt based on your vim setup
 Plugin 'edkolev/tmuxline.vim'     "Lets you generate a tmux line based on your vim setup
@@ -42,7 +42,6 @@ let g:airline#extensions#tabline#enabled=1                        "Enable the ai
 let g:airline_powerline_fonts=1                                   "Enable powerline fonts in airline
 let g:syntastic_check_on_open = 1                                 "Check for syntax errors on open
 let g:syntastic_check_on_wq = 0                                   "Don't bother checking syntax when exiting
-let g:syntastic_c_checkers = ['make']                             "Check syntax using make
 let g:syntastic_cpp_check_header = 1                              "Check header files
 let g:syntastic_cpp_no_include_search = 1                         "Don't search includes
 let g:syntastic_cpp_no_default_include_dirs = 1                   "Don't check default include dirs
@@ -63,12 +62,27 @@ let g:tmuxline_preset = {
    \'cwin' : '#W',
    \'y'    : '%a %R'}
 
+let g:lightline = {
+      \ 'component': {
+      \   'readonly': '%{&filetype=="help"?"":&readonly?"":""}',
+      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}'
+      \ },
+      \ 'component_visible_condition': {
+      \   'readonly': '(&filetype!="help"&& &readonly)',
+      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
 let g:tex_fold_enabled=1                                            "Fold TeX/LaTeX code
 let g:tex_fold_sec_char='+'                                         "Prepend the section foldtext with a +
 let g:tex_fold_env_char='*'                                         "Prepend the environment foldtext with a *
 let g:tex_conceal='abdmgs'                                          "Trasform many common symbols into their unicode
                                                                     "variants when the cursor is on a different line.
 let g:tex_fold_additional_envs=['document', 'enumerate', 'itemize'] "Fold document, enumerate, and itemize LaTeX blocks
+
+let g:localvimrc_ask=0 "Don't ask every time a local vimrc is found.
 
 syntax enable
 colorscheme molokai
@@ -101,6 +115,7 @@ set gd                              "By default, set the g substitute flag. This
 set ic                              "Disable case-sensitive searching
 set is                              "Enable incremental searching
 set hls                             "Highlight all search matches
+set noshowmode                      "Hide mode information (lightline provides this)
 set ls=2                            "Always display the statusline
 set nu                              "Display line numbers
 set rnu                             "Display line numbers relative to the cursor position
@@ -122,7 +137,7 @@ set wig=*.o,*.depend,*.un~,*.swp    "Ignore these files, and don't display them 
 set wmnu                            "Enable Wildmenu, giving enhanced tab-completion of commands
 set wim=list:longest                "When completing commands, list all matches and complete as much common text as possible
 set wrap                            "Wrap text
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1   "Enable true color display
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1   "Enable true color display
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 "Changes the cursor shape in insert mode
 
 "Prevent arrow key use in normal mode
