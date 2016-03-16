@@ -128,6 +128,7 @@ set sbr=→\                          "Display '→ ' in front of a wrapped line
 set si                              "Use smart indenting
 set ts=4                            "Tab is 4 spaces
 set title                           "Change the window title of the terminal to be more descriptive
+set titlestring=nvim                "Perform compton-based Dark Magick to make my terminal opaque when neovim is running
 set titleold=st                     "Sets the window title to my most-used terminal if nvim couldn't preserve it
 set tw=79                           "Sets the width to 79 characters
 set tf                              "Indicates that the terminal connection is fast, so more characters should be changed
@@ -137,7 +138,7 @@ set wig=*.o,*.depend,*.un~,*.swp    "Ignore these files, and don't display them 
 set wmnu                            "Enable Wildmenu, giving enhanced tab-completion of commands
 set wim=list:longest                "When completing commands, list all matches and complete as much common text as possible
 set wrap                            "Wrap text
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1   "Enable true color display
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1   "Enable true color display
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 "Changes the cursor shape in insert mode
 
 "Prevent arrow key use in normal mode
@@ -186,7 +187,6 @@ au VimEnter * if argc() == 0 && !exists("s:std_in") | Explore | endif
 
 "When opening .md files, set the filetype to markdown
 au BufNewFile,BufReadPost *.md set filetype=markdown
-au BufNewFile,BufReadPost *.c syn match niceArrow '->' conceal cchar=→
 
 "Don't screw up folds when inserting text that might affect them, until
 "leaving insert mode. Foldmethod is local to the window. Protect against

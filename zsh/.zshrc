@@ -103,7 +103,10 @@ alias gdb='gdb -ex run'
 alias off='systemctl poweroff'
 alias pacman='sudo pacman'
 alias mpvf="cut -d'&' -f1 - | mpv -fs --ytdl"
-#PS1='%{$fg[cyan]%}%n %{$fg[yellow]%}%~ $(__git_ps1 "(%s)")%{$fg[green]%}\$ %{$reset_color%}'
+
+# When neovim closes, reset the terminal name (and with it, the transparency)
+# This does not change the transparency when suspending, but that's fine.
+nvim() { /usr/bin/nvim $@; echo -en "\033]0;st\a"}
 
 # Colour in man pages
 # ============================================================
