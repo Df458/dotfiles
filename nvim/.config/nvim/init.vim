@@ -31,6 +31,9 @@ Plugin 'tpope/vim-eunuch'         "Adds basic Unix commands to vim
 Plugin 'wellle/targets.vim'       "Extends vim's text objects to allow for some speedy cursor warping
 Plugin 'tomtom/tcomment_vim'      "A wonderful plugin for commenting stuff out
 Plugin 'embear/vim-localvimrc'    "Allows for project-local vim configuration
+Plugin 'juleswang/css.vim'        "CSS3 support
+Plugin 'othree/html5.vim'         "HTML5 support
+Plugin 'pangloss/vim-javascript'  "Javascript support
 
 "Required vundle finishing stuff
 call vundle#end()

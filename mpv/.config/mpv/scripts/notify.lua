@@ -13,7 +13,7 @@ function notify_play()
     if title == nil then
         return;
     end
-    os.execute("notify-send -i 'media-playing' 'Now Playing' '" .. title .. "'");
+    os.execute("notify-send -i 'media-playing' 'Now Playing' \"" .. title .. "\"");
 end
 
 function notify_pause()
@@ -21,7 +21,7 @@ function notify_pause()
     if title == nil then
         return;
     end
-    os.execute("notify-send -i 'media-paused' 'Now Paused' '" .. title .. "'");
+    os.execute("notify-send -i 'media-paused' 'Now Paused' \"" .. title .. "\"");
 end
 
 mp.observe_property("pause", "bool", on_pause_change)
