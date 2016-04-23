@@ -4,6 +4,8 @@
 # ~/.xinitrc
 #
 
+export DF_X_SESSION=1
+export DF_WAYLAND_SESSION=0
 exec xrdb ~/.Xresources &
 exec setxkbmap -option caps:swapescape &
 exec st -c media-term -e mux media &
