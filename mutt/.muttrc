@@ -8,7 +8,7 @@ set sendmail = "/usr/bin/msmtp"
 source $alias_file
 set sidebar_visible = yes
 set sidebar_width = 24
-set sidebar_delim = '│'
+set sidebar_divider_char = '┊'
 mailboxes ~/.mail/personal ~/.mail/college ~/.mail/extra
 #set sidebar_format = "%N - %B"
 #set sidebar_shortpath = yes
