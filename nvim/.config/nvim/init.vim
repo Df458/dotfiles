@@ -1,44 +1,55 @@
-"Required initial vundle stuff
-set nocp
-filetype off
-set rtp+=~/.config/nvim/.nvim/bundle/Vundle.vim
-call vundle#begin("~/.config/nvim/.nvim/bundle")
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-"Plugin List
-Plugin 'gmarik/Vundle.vim'        "Package management for plugins
-Plugin 'tpope/vim-fugitive'       "Git integration
-"Plugin 'nanotech/jellybeans.vim' "Jellybeans colorscheme
-Plugin 'tomasr/molokai'           "Molokai colorscheme
-Plugin 'Raimondi/delimitMate'     "Automatically closes braces, parens, quotes, etc.
-Plugin 'cbracken/vala.vim'        "Vala syntax highlighting
-Plugin 'itchyny/lightline.vim'    "Pretty and functional statusline
-Plugin 'scrooloose/syntastic'     "Automatic syntax checker
-Plugin 'edkolev/promptline.vim'   "Lets you generate a shell prompt based on your vim setup
-Plugin 'edkolev/tmuxline.vim'     "Lets you generate a tmux line based on your vim setup
-Plugin 'tpope/vim-vinegar'        "Greatly improves NetRW and makes it useful as a general-purpose file browser/manager
-Plugin 'tpope/vim-dispatch'       "Asynchronous builds and tests, courtesy of tmux
-"Plugin 'Shougo/unite.vim'        "A very powerful and scary plugin. Someday, I'll learn it...
-Plugin 'bruno-/vim-man'           "Adds :Man command, for reading man pages in vim
-Plugin 'tikhomirov/vim-glsl'      "Adds GLSL syntax highlighting
-Plugin 'a.vim'                    "Adds :A* commands, for opening header/source files
-Plugin 'matze/vim-tex-fold'       "Latex folding
-Plugin 'haya14busa/incsearch.vim' "Improved incremental search
-Plugin 'AutoComplPop'             "Automatically makes the Omnicompletion popup appear as you type
-Plugin 'godlygeek/tabular'        "Easy text alignment
-Plugin 'phleet/vim-mercenary'     "Mercurial integration
-Plugin 'Yggdroot/indentLine'      "Displays indent levels
-Plugin 'tpope/vim-eunuch'         "Adds basic Unix commands to vim
-Plugin 'wellle/targets.vim'       "Extends vim's text objects to allow for some speedy cursor warping
-Plugin 'tomtom/tcomment_vim'      "A wonderful plugin for commenting stuff out
-Plugin 'embear/vim-localvimrc'    "Allows for project-local vim configuration
-Plugin 'juleswang/css.vim'        "CSS3 support
-Plugin 'othree/html5.vim'         "HTML5 support
-Plugin 'pangloss/vim-javascript'  "Javascript support
+" Required:
+set runtimepath^=/home/df458/.config/nvim/.nvim/repos/github.com/Shougo/dein.vim
 
-"Required vundle finishing stuff
-call vundle#end()
-set nocp
+" Required:
+call dein#begin(expand('/home/df458/.config/nvim/.nvim'))
+
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
+
+" Add or remove your plugins here:
+call dein#add('tomasr/molokai')
+call dein#add('Raimondi/delimitMate')
+call dein#add('cbracken/vala.vim', {'on_ft' : 'vala'})
+call dein#add('itchyny/lightline.vim')    "Pretty and functional statusline
+call dein#add('scrooloose/syntastic')     "Automatic syntax checker
+call dein#add('tpope/vim-vinegar')        "Greatly improves NetRW and makes it useful as a general-purpose file browser/manager
+call dein#add('tpope/vim-dispatch')       "Asynchronous builds and tests, courtesy of tmux
+call dein#add('Shougo/unite.vim')        "A very powerful and scary plugin. Someday, I'll learn it...
+call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+call dein#add('bruno-/vim-man')           "Adds :Man command, for reading man pages in vim
+call dein#add('tikhomirov/vim-glsl')      "Adds GLSL syntax highlighting
+call dein#add('a.vim', {'on_ft' : ['c', 'cpp']})                    "Adds :A* commands, for opening header/source files
+call dein#add('matze/vim-tex-fold', {'on_ft' : 'tex'})       "Latex folding
+call dein#add('haya14busa/incsearch.vim') "Improved incremental search
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('zchee/deoplete-clang', {'on_ft' : ['c', 'cpp']})
+call dein#add('godlygeek/tabular')        "Easy text alignment
+call dein#add('wellle/targets.vim')       "Extends vim's text objects to allow for some speedy cursor warping
+call dein#add('tomtom/tcomment_vim')      "A wonderful plugin for commenting stuff out
+call dein#add('embear/vim-localvimrc')    "Allows for project-local vim configuration
+call dein#add('juleswang/css.vim', {'on_ft' : 'css'})        "CSS3 support
+call dein#add('othree/html5.vim', {'on_ft' : 'html'})         "HTML5 support
+call dein#add('pangloss/vim-javascript', {'on_ft' : 'javascript'})  "Javascript support
+
+" Required:
+call dein#end()
+
+" Required:
 filetype plugin indent on
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
 
 let g:vtoCommDictNew={ 'lua' : '--', 'vala' : '//', 'tex' : '%' } "Add additional comment strings
 let g:airline#extensions#tabline#enabled=1                        "Enable the airline tabline
@@ -52,18 +63,19 @@ let g:syntastic_cpp_auto_refresh_includes = 1                     "Update includ
 let g:syntastic_cpp_compiler_options = '-std=c++0x'               "Assume c++0x (c++11) code
 let g:syntastic_mode_map = { "mode": "active",
                            \ "passive_filetypes": ["vala"] }      "Disable vala syntax checking, because it's pretty awful
+let g:vimfiler_as_default_explorer = 1
 let vala_comment_strings = 1                                      "highlight strings in vala comments
-let g:promptline_preset = {
-   \'a' : ['%n'],
-   \'b' : [promptline#slices#cwd()],
-   \'c' : [promptline#slices#vcs_branch()],
-   \'warn' : [promptline#slices#last_exit_code()]}
-let g:tmuxline_preset = {
-   \'a' : '#S',
-   \'b'    : '#W',
-   \'win'  : '#I #W',
-   \'cwin' : '#W',
-   \'y'    : '%a %R'}
+" let g:promptline_preset = {
+"    \'a' : ['%n'],
+"    \'b' : [promptline#slices#cwd()],
+"    \'c' : [promptline#slices#vcs_branch()],
+"    \'warn' : [promptline#slices#last_exit_code()]}
+" let g:tmuxline_preset = {
+"    \'a' : '#S',
+"    \'b'    : '#W',
+"    \'win'  : '#I #W',
+"    \'cwin' : '#W',
+"    \'y'    : '%a %R'}
 
 let g:lightline = {
       \ 'component': {
@@ -86,6 +98,9 @@ let g:tex_conceal='abdmgs'                                          "Trasform ma
 let g:tex_fold_additional_envs=['document', 'enumerate', 'itemize'] "Fold document, enumerate, and itemize LaTeX blocks
 
 let g:localvimrc_ask=0 "Don't ask every time a local vimrc is found.
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
 
 syntax enable
 colorscheme molokai
@@ -154,11 +169,12 @@ nnoremap <down> <nop>
 "This allows us to map leader (tab, in my case) to scroll through completions
 "without lag.
 function! UnmapInsertLeader()
-    iunmap <Leader>ih
-    iunmap <Leader>is
-    iunmap <Leader>ihn
+    silent! iunmap <Leader>ih
+    silent! iunmap <Leader>is
+    silent! iunmap <Leader>ihn
 endfunction
-au VimEnter * :call UnmapInsertLeader()
+au Filetype c,cpp :call UnmapInsertLeader()
+" au Filetype cpp :call UnmapInsertLeader()
 inoremap <expr><tab> pumvisible() ? '<down>' : '<tab>'
 
 "Pressing K on a word opens the respective manpage for it
@@ -208,3 +224,6 @@ function! SJIS2UTF()
     :e! ++enc=sjis
     :w! ++enc=utf-8
 endfunction
+
+" Unite stuff
+nnoremap <Leader>q :Unite<cr>
