@@ -1,0 +1,23 @@
+xterm*termName:        xterm-256color
+xterm*faceName:        terminus:size=8
+xterm*faceNameDoublesize: IPAPMincho:style=Regular
+xterm*dynamicColors:   true
+xterm*saveLines:       4096
+xterm*scrollKey:       true
+xterm*scrollTtyOutput: false
+xterm*scrollBar:       false
+xterm*rightScrollBar:  true
+xterm*jumpScroll:      true
+xterm*multiScroll:     true
+XTerm*locale:          true
+
+! URxvt ----------------------------------------------------------------------
+
+! scrollbar style - rxvt (default), plain (most compact), next, or xterm
+! URxvt.scrollstyle: xterm
+URxvt.scrollBar: false
+URxvt.font: xft:Terminess Powerline:size=9,xft:Inconsolata,xft:Eversion Mono
+Urxvt.transparent: true
+Urxvt.shading: 20
+
+#include ".xres_color_current"

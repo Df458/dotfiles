@@ -1,0 +1,21 @@
+! terminal colors ------------------------------------------------------------
+
+*foreground: #665c64
+*background: #121212
+
+*color0:  #554444
+*color1:  #c58137
+*color2:  #485373
+*color3:  #8a7a64
+*color4:  #252b39
+*color5:  #33357f
+*color6:  #6578b0
+*color7:  #f2f1b9
+*color8:  #c3c2c5
+*color9:  #f0a655
+*color10: #768dd0
+*color11: #beb090
+*color12: #61778d
+*color13: #6363be
+*color14: #849eeb
+*color15: #665c64
