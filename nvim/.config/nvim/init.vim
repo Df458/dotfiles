@@ -98,7 +98,9 @@ let g:tex_conceal='abdmgs'                                          "Trasform ma
 let g:tex_fold_additional_envs=['document', 'enumerate', 'itemize'] "Fold document, enumerate, and itemize LaTeX blocks
 
 let g:localvimrc_ask=0 "Don't ask every time a local vimrc is found.
+let g:localvimrc_sandbox=0
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#disable_auto_complete = 0
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
 
@@ -215,6 +217,8 @@ au InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm
 
 "Press F5 to perform a non-blocking compile
 nmap <F5> :wa<cr> :Make -j8<cr>
+nmap <leader><F5> :wa<cr> :Make clean<cr> :Make -j8<cr>
+nmap <F6> :wa<cr> :Make test<cr>
 
 "Press tab followed by space to hide all search highlights
 nnoremap <leader><space> :noh<cr>

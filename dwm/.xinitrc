@@ -8,9 +8,8 @@ export DF_X_SESSION=1
 export DF_WAYLAND_SESSION=0
 exec seasonal_prep &
 exec setxkbmap -option caps:swapescape &
-exec urxvt -e mux media &
-exec urxvt -e mux comms &
 # exec xrandr --output DVI-1 --mode 1920x1080 --primary --output DVI-0 --mode 1280x1024 --right-of DVI-1 &
+exec start_terms &
 exec randbak &
 exec dunst &
 exec compton &

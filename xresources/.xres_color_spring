@@ -1,0 +1,28 @@
+! terminal colors ------------------------------------------------------------
+
+*background: #170f0d
+*foreground: #746c48
+! Black (not tango) + DarkGrey
+*color0:  #392925
+*color8:  #544b2e
+! DarkRed + Red
+*color1:  #98724c
+*color9:  #af652f
+! DarkGreen + Green
+*color2:  #908f32
+*color10: #c3c13d
+! DarkYellow + Yellow
+*color3:  #aa964c
+*color11: #c8b55b
+! DarkBlue + Blue
+*color4:  #7b854e
+*color12: #70a16c
+! DarkMagenta + Magenta
+*color5:  #6b5644
+*color13: #98724c
+!DarkCyan + Cyan (both not tango)
+*color6:  #5c5142
+*color14: #778725
+! LightGrey + White
+*color7:  #c8b55b
+*color15: #e4dc8c
