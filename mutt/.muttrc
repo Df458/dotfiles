@@ -4,26 +4,35 @@ set message_cachedir = "~/.cache/mutt"
 set alias_file = "~/.mutt/aliases"
 set sort_alias = alias
 set reverse_alias = yes
-set sendmail = "/usr/bin/msmtp"
+set sendmail = "/usr/bin/msmtp -a gmail_personal"
 source $alias_file
+source ~/.muttprivate
+
+# Sidebar
+mailboxes ~/.mail/gmail/Inbox ~/.mail/gmail/Sent ~/.mail/gmail/kphotoalbum ~/.mail/gmail/mesa-dev ~/.mail/gmail/mutt ~/.mail/extra
 set sidebar_visible = yes
 set sidebar_width = 24
 set sidebar_divider_char = '┊'
-mailboxes ~/.mail/personal ~/.mail/college ~/.mail/extra
-#set sidebar_format = "%N - %B"
-#set sidebar_shortpath = yes
+set sidebar_short_path = yes
+set mail_check_stats
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set sidebar_new_mail_only = yes
+sidebar_whitelist "/home/df458/.mail/gmail/Inbox"
+sidebar_whitelist "/home/df458/.mail/gmail/Sent"
 bind index \cp sidebar-prev
 bind index \cn sidebar-next
 bind index \co sidebar-open
 bind pager \cp sidebar-prev
 bind pager \cn sidebar-next
 bind pager \co sidebar-open
+
+
 #set imap_check_subscribed
 #unset imap_passive
 #set imap_keepalive = 300
 #set mail_check = 900
 set mbox_type=Maildir
-set folder=$HOME/.mail/personal
+set folder=$HOME/.mail/gmail/Inbox
 set spoolfile=+/
 set header_cache=~/.cache/mutt
 set sort = "reverse-threads"
@@ -37,7 +46,7 @@ set pager_stop
 set tilde
 unset markers
 auto_view text/html
-macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+macro pager \cb <pipe-entry>'urlscan'<enter> 'Follow links with urlview'
 set wait_key = no
 
 # GPG stuff
@@ -51,8 +60,8 @@ set pgp_strict_enc
 alternative_order text/plain text/enriched text/html
 
 folder-hook ~/\.mail/personal 'set sendmail = "/usr/bin/msmtp -a gmail_personal"'
-folder-hook ~/\.mail/college  'set sendmail = "/usr/bin/msmtp -a gmail_school"'
-folder-hook ~/\.mail/extra    'unset sendmail'
+# folder-hook ~/\.mail/college  'set sendmail = "/usr/bin/msmtp -a gmail_school"'
+folder-hook ~/\.mail/extra    'set sendmail = "/usr/bin/msmtp -a gmail_extra"'
 
 ## Theme kindly inspired from
 ## http://nongeekshandbook.blogspot.ie/2009/03/mutt-color-configuration.html
@@ -124,14 +133,14 @@ color quoted7 green default
 ## Default color definitions   
 #color hdrdefault white green                                                                                                                                             
 color signature brightmagenta default
-color indicator default cyan
+color indicator cyan default
 color attachment default green
 color error red default
 color message white default
 color search brightwhite magenta
 color status brightyellow blue
 color tree brightblue default
-color normal white default
+color normal green default
 color tilde green default
 color bold brightyellow default
 #color underline magenta default                                                                                                                                            
@@ -143,4 +152,4 @@ mono underline underline
 mono indicator reverse
 
 ##
-color sidebar_new yellow default
+color sidebar_new green default

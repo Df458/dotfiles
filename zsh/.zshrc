@@ -20,13 +20,13 @@ DISABLE_AUTO_UPDATE="true"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
- COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -40,7 +40,7 @@ DISABLE_AUTO_UPDATE="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-export DISABLE_AUTO_TITLE=true
+#export DISABLE_AUTO_TITLE=true
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -49,7 +49,7 @@ export DISABLE_AUTO_TITLE=true
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-#source /usr/share/git/completion/git-prompt.sh
+source /usr/share/git/completion/git-prompt.sh
 source ~/.shellprompt.sh
 source ~/.zsh-personal
 
@@ -60,6 +60,7 @@ alias grep='grep --color=auto'
 # User configuration
 
 export PATH=$HOME/.bin:/usr/local/bin:$PATH
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -83,7 +84,7 @@ export PATH=$HOME/.bin:/usr/local/bin:$PATH
 export FBFONT=/usr/share/kbd/consolefonts/ter-216n.psf.gz
 
 # X Window Manager 
-export WM=/usr/bin/dwm
+#export WM=/usr/bin/dwm
 
 # Default WINE location and architecture
 export WINEPREFIX="/home/df458/.wine"

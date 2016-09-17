@@ -29,7 +29,7 @@ call dein#add('a.vim', {'on_ft' : ['c', 'cpp']})                    "Adds :A* co
 call dein#add('matze/vim-tex-fold', {'on_ft' : 'tex'})       "Latex folding
 call dein#add('haya14busa/incsearch.vim') "Improved incremental search
 call dein#add('Shougo/deoplete.nvim')
-call dein#add('zchee/deoplete-clang', {'on_ft' : ['c', 'cpp']})
+" call dein#add('zchee/deoplete-clang', {'on_ft' : ['c', 'cpp']})
 call dein#add('godlygeek/tabular')        "Easy text alignment
 call dein#add('wellle/targets.vim')       "Extends vim's text objects to allow for some speedy cursor warping
 call dein#add('tomtom/tcomment_vim')      "A wonderful plugin for commenting stuff out
