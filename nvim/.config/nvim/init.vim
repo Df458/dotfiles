@@ -27,7 +27,6 @@ call dein#add('bruno-/vim-man')           "Adds :Man command, for reading man pa
 call dein#add('tikhomirov/vim-glsl')      "Adds GLSL syntax highlighting
 call dein#add('a.vim', {'on_ft' : ['c', 'cpp']})                    "Adds :A* commands, for opening header/source files
 call dein#add('matze/vim-tex-fold', {'on_ft' : 'tex'})       "Latex folding
-call dein#add('haya14busa/incsearch.vim') "Improved incremental search
 call dein#add('Shougo/deoplete.nvim')
 " call dein#add('zchee/deoplete-clang', {'on_ft' : ['c', 'cpp']})
 call dein#add('godlygeek/tabular')        "Easy text alignment
@@ -147,9 +146,9 @@ set sw=4                            "Indents are 4 spaces wide
 set sbr=→\                          "Display '→ ' in front of a wrapped line
 set si                              "Use smart indenting
 set ts=4                            "Tab is 4 spaces
-set title                           "Change the window title of the terminal to be more descriptive
-set titlestring=nvim                "Perform compton-based Dark Magick to make my terminal opaque when neovim is running
-set titleold=st                     "Sets the window title to my most-used terminal if nvim couldn't preserve it
+" set title                           "Change the window title of the terminal to be more descriptive
+" set titlestring=nvim                "Perform compton-based Dark Magick to make my terminal opaque when neovim is running
+" set titleold=st                     "Sets the window title to my most-used terminal if nvim couldn't preserve it
 set tw=79                           "Sets the width to 79 characters
 set tf                              "Indicates that the terminal connection is fast, so more characters should be changed
 set udf                             "Save undo history across sessions
@@ -158,6 +157,7 @@ set wig=*.o,*.depend,*.un~,*.swp    "Ignore these files, and don't display them 
 set wmnu                            "Enable Wildmenu, giving enhanced tab-completion of commands
 set wim=list:longest                "When completing commands, list all matches and complete as much common text as possible
 set wrap                            "Wrap text
+set icm=split                       "Search Previewing
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1   "Enable true color display
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 "Changes the cursor shape in insert mode
 
@@ -183,11 +183,6 @@ inoremap <expr><tab> pumvisible() ? '<down>' : '<tab>'
 nmap K <Plug>(Man)
 "Allows ; instead of : for commands
 nnoremap ; :
-
-"Incsearch remaps
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
 
 "Automatically align code with 3 keypresses
 "Left-align by = signs

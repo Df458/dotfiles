@@ -56,6 +56,7 @@ source ~/.zsh-personal
 # Prevent grep from spewing deprecation warnings everywhere
 unset GREP_OPTIONS
 alias grep='grep --color=auto'
+alias todo='task proj:life'
 
 # User configuration
 
@@ -107,7 +108,7 @@ alias mpvf="cut -d'&' -f1 - | mpv -fs --ytdl"
 
 # When neovim closes, reset the terminal name (and with it, the transparency)
 # This does not change the transparency when suspending, but that's fine.
-nvim() { /usr/bin/nvim $@; echo -en "\033]0;st\a"}
+# nvim() { /usr/bin/nvim $@; echo -en "\033]0;st\a"}
 
 # Colour in man pages
 # ============================================================

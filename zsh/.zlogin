@@ -1,3 +1,3 @@
 export FBFONT=/usr/share/kbd/consolefonts/ter-216n.psf.gz
-export WM=i3
+export WM=awesome
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx
