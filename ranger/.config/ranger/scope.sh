@@ -71,8 +71,9 @@ case "$extension" in
         #try comicthumb "$path" "/tmp/thumb.png" && { img2txt --gamma=0.6 --width="$width" "/tmp/thumb.png"; exit 4;}
         try comicthumb "$path" "$cached" 1024 && exit 6 || exit 1
         ;;
-        swf)
-            try swfdec-thumbnailer "$path" "$cached" -s 1024 && exit 6 || exit 1
+    swf)
+        try swfdec-thumbnailer "$path" "$cached" -s 1024 && exit 6 || exit 1
+        ;;
 esac
 
 case "$mimetype" in
@@ -81,7 +82,7 @@ case "$mimetype" in
         try highlight --out-format=ansi "$path" && { dump | trim; exit 5; } || exit 2;;
     # Ascii-previews of images:
     image/*)
-        img2txt --gamma=0.6 --width="$width" "$path" && exit 4 || exit 1;;
+        cp "$path" "$cached" && exit 6;;
     # Image Preview for videos
     video/*)
         ffmpegthumbnailer -i "$path" -o "$cached" -s 0 && exit 6 || exit 1;;

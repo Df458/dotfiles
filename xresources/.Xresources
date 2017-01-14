@@ -1,5 +1,11 @@
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
 xterm*termName:        xterm-256color
-xterm*faceName:        terminus:size=8
+xterm*faceName:        Terminess Powerline:size=8
 xterm*faceNameDoublesize: IPAPMincho:style=Regular
 xterm*dynamicColors:   true
 xterm*saveLines:       4096
@@ -16,8 +22,6 @@ XTerm*locale:          true
 ! scrollbar style - rxvt (default), plain (most compact), next, or xterm
 ! URxvt.scrollstyle: xterm
 URxvt.scrollBar: false
-URxvt.font: xft:Terminess Powerline:size=9,xft:Inconsolata,xft:Eversion Mono
-Urxvt.transparent: true
-Urxvt.shading: 20
+URxvt.font: xft:xos4 Terminess Powerline:size=9,style=regular,xft:Inconsolata,xft:Eversion Mono
 
 #include ".xres_color_current"
