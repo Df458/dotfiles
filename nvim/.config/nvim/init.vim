@@ -36,6 +36,9 @@ call dein#add('embear/vim-localvimrc')    "Allows for project-local vim configur
 call dein#add('juleswang/css.vim', {'on_ft' : 'css'})        "CSS3 support
 call dein#add('othree/html5.vim', {'on_ft' : 'html'})         "HTML5 support
 call dein#add('pangloss/vim-javascript', {'on_ft' : 'javascript'})  "Javascript support
+call dein#add('vimwiki/vimwiki', {'merged' : 0, 'rev' : 'dev'})  "Wiki feature
+call dein#add('tbabej/taskwiki', {'merged' : 0})  "Taskwarrior wiki integration
+call dein#add('powerman/vim-plugin-AnsiEsc')  "Colors for taskwiki
 
 " Required:
 call dein#end()
